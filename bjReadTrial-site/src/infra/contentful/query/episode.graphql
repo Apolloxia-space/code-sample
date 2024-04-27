@@ -1,0 +1,43 @@
+query getEpisode($episodeId: String!) {
+  episode(id: $episodeId) {
+    sys {
+      id
+    }
+    title
+    thumbnail {
+      url
+    }
+    illustsCollection(limit: 100) {
+      items {
+        url
+      }
+    }
+    publishTime
+    unpublishTime
+  }
+}
+
+query getEpisodeArchive($tag: String) {
+  episodeCollection(
+    limit: 100
+    order: publishTime_DESC
+    where: {
+      contentfulMetadata: {
+        tags_exists: true
+        tags: { id_contains_some: [$tag] }
+      }
+    }
+  ) {
+    items {
+      sys {
+        id
+      }
+      title
+      thumbnail {
+        url
+      }
+      publishTime
+      unpublishTime
+    }
+  }
+}

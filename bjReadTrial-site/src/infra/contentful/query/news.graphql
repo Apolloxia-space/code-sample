@@ -1,0 +1,99 @@
+query getNews(
+  $categoryId: String
+  $skip: Int!
+  $limit: Int!
+  $currentTime: DateTime
+  $tag: String!
+) {
+  newsCollection(
+    limit: $limit
+    skip: $skip
+    order: publishTime_DESC
+    where: {
+      newsCategory: { sys: { id: $categoryId } }
+      publishTime_lte: $currentTime # 未来の日付を指定すると、未来の日付のニュースが取得できる
+      contentfulMetadata: {
+        tags_exists: true
+        tags: { id_contains_some: [$tag] }
+      }
+    }
+  ) {
+    total
+    items {
+      sys {
+        id
+      }
+      title
+      newsCategory {
+        sys {
+          id
+        }
+        displayName
+      }
+      publishTime
+      unpublishTime
+    }
+  }
+}
+
+query getNewsDetail($newsId: String!) {
+  news(id: $newsId) {
+    sys {
+      id
+    }
+    title
+    body {
+      json
+      links {
+        assets {
+          block {
+            sys {
+              id
+            }
+            contentfulMetadata {
+              tags {
+                id
+              }
+            }
+            title
+            description
+            contentType
+            fileName
+            size
+            url
+            width
+            height
+          }
+        }
+      }
+    }
+    newsCategory {
+      sys {
+        id
+      }
+      displayName
+    }
+    publishTime
+    unpublishTime
+  }
+}
+
+query getNewsCategory($tag: String!) {
+  newsCategoryCollection(
+    where: {
+      contentfulMetadata: {
+        tags_exists: true
+        tags: { id_contains_some: [$tag] }
+      }
+    }
+    order: displayOrder_ASC
+  ) {
+    items {
+      sys {
+        id
+      }
+      displayName
+      displayOrder
+    }
+  }
+}
