@@ -1,0 +1,18 @@
+query getQuestionGroup {
+  questionGroupCollection(order: displayOrder_ASC) {
+    items {
+      sys {
+        id
+      }
+      displayName
+      questionCollection {
+        items {
+          question
+          answer {
+            json
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+query getSubscriptionPlans($tag: String!) {
+  subscriptionPlansCollection(
+    where: {
+      contentfulMetadata: {
+        tags_exists: true
+        tags: { id_contains_some: [$tag] }
+      }
+    }
+  ) {
+    items {
+      sys {
+        id
+      }
+      displayName
+      displayOrder
+      planId
+      price
+      membershipName
+    }
+  }
+}

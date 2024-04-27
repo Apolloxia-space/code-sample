@@ -1,0 +1,12 @@
+query getImage($displayName: String!) {
+  imageCollection(where: { displayName: $displayName }) {
+    items {
+      displayName
+      image {
+        url
+        width
+        height
+      }
+    }
+  }
+}

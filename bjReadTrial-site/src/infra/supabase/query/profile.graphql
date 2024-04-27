@@ -1,0 +1,13 @@
+query GetUserProfile($userId: UUID!) {
+  mst_user_profileCollection(filter: { id: { eq: $userId } }) {
+    edges {
+      node {
+        id
+        firstname
+        lastname
+        nickname
+        created_at
+      }
+    }
+  }
+}

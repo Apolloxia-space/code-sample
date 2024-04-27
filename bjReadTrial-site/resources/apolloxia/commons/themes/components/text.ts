@@ -1,0 +1,95 @@
+import { ComponentStyleConfig } from "@chakra-ui/react"
+
+export const TextTheme: ComponentStyleConfig = {
+  baseStyle: {},
+  variants: {
+    h1: () => ({
+      fontFamily: "Montserrat",
+      fontSize: "40px",
+      fontWeight: "bold",
+      letterSpacing: "0.05em",
+    }),
+    topTitle: () => ({
+      fontFamily: "Montserrat",
+      fontSize: "26px",
+      fontWeight: "bold",
+      letterSpacing: "0.05em",
+      lineHeight: "31px",
+    }),
+    h3: () => ({
+      fontFamily: "Montserrat",
+      fontSize: "18px",
+      fontWeight: "bold",
+      letterSpacing: "0.02em",
+      lineHeight: "28px",
+    }),
+    h4: () => ({
+      fontFamily: "Montserrat",
+      fontSize: "15px",
+      fontWeight: "bold",
+      letterSpacing: "0.1em",
+      lineHeight: "17px",
+    }),
+    strong: () => ({
+      fontFamily: "Montserrat",
+      fontSize: "16px",
+      fontWeight: "900",
+      letterSpacing: "0.1em",
+      lineHeight: "21px",
+    }),
+    btnJp: () => ({
+      fontFamily: "Montserrat",
+      fontSize: "16px",
+      fontWeight: "700",
+      letterSpacing: "0.1em",
+      lineHeight: "17px",
+    }),
+    btnEn: () => ({
+      fontFamily: "Montserrat",
+      fontSize: "18px",
+      fontWeight: "700",
+      letterSpacing: "0.07em",
+      lineHeight: "17px",
+    }),
+    txt: () => ({
+      fontFamily: "Montserrat",
+      fontSize: "15px",
+      letterSpacing: "0.1em",
+      lineHeight: "27px",
+    }),
+    date: () => ({
+      fontFamily: "Montserrat",
+      fontSize: "13px",
+      fontWeight: "bold",
+      letterSpacing: "-0.01em",
+      lineHeight: "17px",
+    }),
+    tag: () => ({
+      fontFamily: "Montserrat",
+      fontSize: "11px",
+      fontWeight: "bold",
+      letterSpacing: "0.1em",
+      lineHeight: "17px",
+    }),
+    txtBlog: () => ({
+      fontFamily: "Montserrat",
+      fontSize: "13px",
+      letterSpacing: "0.1em",
+      lineHeight: "50px",
+    }),
+    small: () => ({
+      fontFamily: "Montserrat",
+      fontSize: "14px",
+      fontWeight: "500",
+      letterSpacing: "0.06em",
+      lineHeight: "19px",
+    }),
+    category: () => ({
+      fontFamily: "Montserrat",
+      fontSize: "14px",
+      fontWeight: "bold",
+      letterSpacing: "0.1em",
+      lineHeight: "17px",
+    }),
+  },
+}

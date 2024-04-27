@@ -1,0 +1,8 @@
+query getText($displayName: String!) {
+  textCollection(where: { displayName: $displayName }) {
+    items {
+      displayName
+      description
+    }
+  }
+}
